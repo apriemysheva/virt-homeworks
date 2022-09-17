@@ -42,8 +42,9 @@ Hey, Netology
 </body>
 </html>
 ```
+![img.png](img.png)
 Опубликуйте созданный форк в своем репозитории и предоставьте ответ в виде ссылки на https://hub.docker.com/username_repo.
-
+https://hub.docker.com/layers/apriemysheva/virt-homeworks/nginx/images/sha256-e5e649671b07cc9f0321a9582aae5b773997fafc9ba149d7fb48dcd847cd0187?context=repo
 ## Задача 2
 
 Посмотрите на сценарий ниже и ответьте на вопрос:
