@@ -42,4 +42,4 @@
   <img width="1200" height="600" src="./assets/yc_02.png">
 </p>
 
-![img_4.png](img_4.png)
+![img_5.png](img_5.png)
