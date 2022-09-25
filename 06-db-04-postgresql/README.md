@@ -10,26 +10,30 @@
 
 **Найдите и приведите** управляющие команды для:
 - вывода списка БД
+![img.png](img.png)
 - подключения к БД
+![img_1.png](img_1.png)
 - вывода списка таблиц
+![img_2.png](img_2.png)
 - вывода описания содержимого таблиц
+![img_3.png](img_3.png)
 - выхода из psql
-
+postgres=# \q
 ## Задача 2
 
 Используя `psql` создайте БД `test_database`.
-
+![img_4.png](img_4.png)
 Изучите [бэкап БД](https://github.com/netology-code/virt-homeworks/tree/master/06-db-04-postgresql/test_data).
 
 Восстановите бэкап БД в `test_database`.
-
+![img_5.png](img_5.png)
 Перейдите в управляющую консоль `psql` внутри контейнера.
 
 Подключитесь к восстановленной БД и проведите операцию ANALYZE для сбора статистики по таблице.
-
+![img_7.png](img_7.png)
 Используя таблицу [pg_stats](https://postgrespro.ru/docs/postgresql/12/view-pg-stats), найдите столбец таблицы `orders` 
 с наибольшим средним значением размера элементов в байтах.
-
+![img_8.png](img_8.png)
 **Приведите в ответе** команду, которую вы использовали для вычисления и полученный результат.
 
 ## Задача 3
@@ -39,15 +43,23 @@
 провести разбиение таблицы на 2 (шардировать на orders_1 - price>499 и orders_2 - price<=499).
 
 Предложите SQL-транзакцию для проведения данной операции.
-
+![img_9.png](img_9.png)
 Можно ли было изначально исключить "ручное" разбиение при проектировании таблицы orders?
-
+```html
+Можно было бы, если бы при проектировании таблицу сделали бы селекционной. 
+```
 ## Задача 4
 
 Используя утилиту `pg_dump` создайте бекап БД `test_database`.
-
+```html
+root@477fcf9cbe0f:/var/lib/postgresql#  pg_dump -U postgres -d test_database >test_database_dump.sql
+```
 Как бы вы доработали бэкап-файл, чтобы добавить уникальность значения столбца `title` для таблиц `test_database`?
-
+```html
+во всех секциях, где создаётся таблица, добавить к title параметр UNIQUE, 
+title character varying(80) NOT NULL UNIQUE
+alter table orders add unique (title, price);
+```
 ---
 
 ### Как cдавать задание
