@@ -23,6 +23,7 @@ postgres=# \q
 
 Используя `psql` создайте БД `test_database`.
 ![img_4.png](img_4.png)
+
 Изучите [бэкап БД](https://github.com/netology-code/virt-homeworks/tree/master/06-db-04-postgresql/test_data).
 
 Восстановите бэкап БД в `test_database`.
