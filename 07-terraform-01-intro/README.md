@@ -68,7 +68,17 @@ is 1.3.0. You can update by downloading from https://www.terraform.io/downloads.
 или виртуальной машине.
 
 ```html
+vagrant@vagrant:~$ $HOME/.bin/terraform --version
+Terraform v1.2.9
+on linux_amd64
 
+Your version of Terraform is out of date! The latest version
+is 1.3.0. You can update by downloading from https://www.terraform.io/downloads.html
+vagrant@vagrant:~$ terraform --version
+Terraform v1.3.0
+on linux_amd64
+
+Решила задачу с помощью утилиты tfswitch
 ```
 ---
 
