@@ -34,24 +34,67 @@
         fmt.Println(output)    
     }
     ```
- 
+   
+ ```html
+        vagrant@vagrant:~/golang$ cat funtmetres.go
+    package main
+
+    import "fmt"
+
+    import "math"
+
+    func main() {
+    println("Enter value in foot")
+    var input float64
+
+    fmt.Scanf("%f", &input)
+    output := input * float64(0.3048)
+    fmt.Println("Метров:", Output)
+    }
+```
+
 1. Напишите программу, которая найдет наименьший элемент в любом заданном списке, например:
     ```
     x := []int{48,96,86,68,57,82,63,70,37,34,83,27,19,97,9,17,}
     ```
+   
+```html
+        package main
+
+    import "fmt"
+
+
+    func main() {
+        values := []int{48,96,86,68,57,82,63,70,37,34,83,27,19,97,9,17}
+
+    min := values[0]
+    for _, v := range values {
+         if (v < min) {
+             min = v
+         }
+    }
+
+    fmt.Println(min)        }
+    }
+```
+
 1. Напишите программу, которая выводит числа от 1 до 100, которые делятся на 3. То есть `(3, 6, 9, …)`.
 
-В виде решения ссылку на код или сам код. 
+В виде решения ссылку на код или сам код.
 
-## Задача 4. Протестировать код (не обязательно).
+```html
+    package main
 
-Создайте тесты для функций из предыдущего задания. 
+    import "fmt"
 
----
 
-### Как cдавать задание
+    func main() {
+         for i := 1; i <= 100; i++ {
+                    if (i%3) == 0 {
+                         fmt.Println(i)
+    }
+      }
+          }
+```
 
-Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
-
----
 
