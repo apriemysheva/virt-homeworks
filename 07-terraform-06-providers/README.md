@@ -13,12 +13,31 @@
 
 
 1. Найдите, где перечислены все доступные `resource` и `data_source`, приложите ссылку на эти строки в коде на 
-гитхабе.   
-1. Для создания очереди сообщений SQS используется ресурс `aws_sqs_queue` у которого есть параметр `name`. 
+гитхабе.  
+```html
+data_source:  https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/provider/provider.go#L418
+resource: https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/provider/provider.go#L937
+
+```
+2. Для создания очереди сообщений SQS используется ресурс `aws_sqs_queue` у которого есть параметр `name`. 
     * С каким другим параметром конфликтует `name`? Приложите строчку кода, в которой это указано.
+   ```html
+     https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/service/sqs/queue.go#L88
+     ConflictsWith: []string{"name_prefix"},
+   ```
     * Какая максимальная длина имени? 
     * Какому регулярному выражению должно подчиняться имя? 
-    
+```html
+   https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/service/sqs/queue.go#L429-L436
+Максимальная длина имени - 80. К имени может быть добавлен параметр .fifo. Регулярное выражение:  
+имя должно состоять из строчных и заглавных букв, цифр и может содержать дефис.  
+    if fifoQueue {
+			re = regexp.MustCompile(`^[a-zA-Z0-9_-]{1,75}\.fifo$`)
+		} else {
+			re = regexp.MustCompile(`^[a-zA-Z0-9_-]{1,80}$`)
+		}
+
+```
 ## Задача 2. (Не обязательно) 
 В рамках вебинара и презентации мы разобрали как создать свой собственный провайдер на примере кофемашины. 
 Также вот официальная документация о создании провайдера: 
